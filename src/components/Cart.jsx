@@ -1,3 +1,5 @@
+
+
 export default function Cart() {
     const plants = [
         {
@@ -23,11 +25,11 @@ export default function Cart() {
         total += p.price
     })
     return (
-        <>
+        <div className="lmj-cart">
             <ul>
                 {cartList}
             </ul>
             <p>Total = {total}</p>
-        </>
+        </div>
     )
 }

@@ -1,3 +1,5 @@
+$leaf-green: #31b572;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -14,7 +16,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // align-items: center;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
