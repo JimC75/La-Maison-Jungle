@@ -1,4 +1,6 @@
 import { plantList } from '../datas/plantList'
+import PlantItem from './Plantitem'
+import cover from '../assets/monstera.jpg'
 
 export default function ShoppingList() {
     const categories = plantList.reduce(
@@ -16,12 +18,8 @@ export default function ShoppingList() {
         <ul className='lmj-plant-list'>
             <h2>Plants</h2>
             {plantList.map((plant, index) => (
-                <li key={index} className='lmj-plant-item'>
-                    {plant.name}
-                    {plant.isBestSale && <span>🔥</span>}
-                    {/* {a && b} == {a ? b : null} */}
-                    {plant.isSpecialOffer && <div className='lmj-sales'>Soldes</div>}
-                </li>
+                <PlantItem key={index} name={plant.name} cover={cover} id={plant.id} light={plant.light} water={plant.water} />
+
             )
             )}
         </ul>
