@@ -22,6 +22,7 @@ function ShoppingList({ cart, updateCart }) {
 
     function addToCart(name, price) {
         const currentPlantSaved = cart.find((plant) => plant.name === name)
+
         if (currentPlantSaved) {
             const cartFilteredCurrentPlant = cart.filter(
                 (plant) => plant.name !== name
@@ -37,7 +38,7 @@ function ShoppingList({ cart, updateCart }) {
 
     return (
         <div className='lmj-shopping-list'>
-            <Categories categories={categories} updateSelectedCat={updateSelectedCat} />
+            <Categories categories={categories} selectedCat={selectedCat} updateSelectedCat={updateSelectedCat} />
             <ul className='lmj-plant-list'>
                 {plantsFromSelectedCat.map(({ id, cover, name, water, light, price }) => (
                     <div key={id}>

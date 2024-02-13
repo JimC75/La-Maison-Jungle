@@ -3,10 +3,15 @@ import logo from '../assets/leaf+1.png'
 import Cart from './Cart'
 import ShoppingList from './ShoppingList'
 import Footer from './Footer'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
-  const [cart, updateCart] = useState([]);
+  const newCart = JSON.parse(localStorage.getItem('cart'))
+  const [cart, updateCart] = useState(newCart);
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+    console.log(cart)
+  }, [cart]);
   return (
     <div>
       <Banner>

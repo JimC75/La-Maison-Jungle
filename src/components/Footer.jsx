@@ -2,12 +2,15 @@ import { useState } from 'react'
 
 function Footer() {
     const [inputValue, setInputValue] = useState('')
-    function checkEmail(value) {
-        console.log(value)
-        if (value.includes('@')) {
-            return ("Votre e-mail est valide")
+
+    function handleInput(e) {
+        setInputValue(e.target.value)
+    }
+
+    function handleBlur() {
+        if (!inputValue.includes('@')) {
+            alert("Attention, il n'y a pas d'@, ceci n'est pas une adresse valide 😥")
         }
-        return ("Attention, il n'y a pas d'@, ceci n'est pas une adresse valide.")
     }
 
     return (
@@ -16,7 +19,12 @@ function Footer() {
                 Pour les passionné·e·s de plantes 🌿🌱🌵
             </div>
             <div className='lmj-footer-elem'>Laissez-nous votre mail :</div>
-            <textarea placeholder='Votre e-mail' onChange={(e) => { setInputValue(e.target.value) }} onBlur={() => { alert(checkEmail(inputValue)) }}></textarea>
+            <input
+                placeholder='Entrez votre mail'
+                onChange={handleInput}
+                value={inputValue}
+                onBlur={handleBlur}
+            />
         </footer>
     )
 }

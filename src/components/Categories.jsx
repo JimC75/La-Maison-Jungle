@@ -1,18 +1,15 @@
 import { useState } from "react";
 
-export default function Categories({ categories, updateSelectedCat }) {
-    const [selectValue, updateSelectValue] = useState("");
-    function setCategory(cat) {
-        updateSelectedCat(cat)
-    }
-    function setSelectValue(value) {
-        updateSelectValue(value);
-        setCategory(value);
-    }
+export default function Categories({ categories, selectedCat, updateSelectedCat }) {
     return (
-        <div>
+        <div className="lmj-categories">
             <label>Catégories</label>
-            <select name="categories" value={selectValue} onChange={(e) => setSelectValue(e.target.value)}>
+            <select
+                name="categories"
+                value={selectedCat}
+                className='lmj-categories-select'
+                onChange={(e) => updateSelectedCat(e.target.value)}
+            >
                 <option value="" key="all">Toutes</option>
                 {categories.map((cat) => (
                     <option key={cat} value={cat}> {cat}</option>
