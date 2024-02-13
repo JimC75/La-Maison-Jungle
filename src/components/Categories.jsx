@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function Categories({ categories, selectedCat, updateSelectedCat }) {
     return (
         <div className="lmj-categories">

@@ -1,6 +1,7 @@
 import { plantList } from '../datas/plantList'
 import Categories from './Categories'
 import PlantItem from './PlantItem'
+import Filter from './Filter'
 import { useState } from 'react'
 
 function ShoppingList({ cart, updateCart }) {
@@ -19,6 +20,8 @@ function ShoppingList({ cart, updateCart }) {
             acc.includes(plant.category) ? acc : acc.concat(plant.category),
         []
     )
+
+    const [maxPrice, updateMaxPrice] = useState(25)
 
     function addToCart(name, price) {
         const currentPlantSaved = cart.find((plant) => plant.name === name)
@@ -39,8 +42,10 @@ function ShoppingList({ cart, updateCart }) {
     return (
         <div className='lmj-shopping-list'>
             <Categories categories={categories} selectedCat={selectedCat} updateSelectedCat={updateSelectedCat} />
+            <Filter maxPrice={maxPrice} updateMaxPrice={updateMaxPrice} />
             <ul className='lmj-plant-list'>
                 {plantsFromSelectedCat.map(({ id, cover, name, water, light, price }) => (
+                    price <= maxPrice &&
                     <div key={id}>
                         <PlantItem
                             cover={cover}
