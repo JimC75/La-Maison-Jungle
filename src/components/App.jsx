@@ -1,8 +1,9 @@
 import Banner from '../components/Banner'
 import logo from '../assets/leaf+1.png'
-// import Cart from '../components/Cart'
+import Cart from '../components/Cart'
 import ShoppingList from '../components/ShoppingList'
-// import '../styles/App.css'
+import QuestionForm from './QuestionForm'
+import Footer from './Footer'
 
 export default function App() {
 
@@ -12,8 +13,10 @@ export default function App() {
         <img src={logo} alt='La maison jungle' className='lmj-logo' />
         <h1 className='lmj-title'>La maison jungle</h1>
       </Banner>
-      {/* <Cart /> */}
+      <Cart />
       <ShoppingList />
+      <QuestionForm />
+      <Footer />
     </>
   )
 }

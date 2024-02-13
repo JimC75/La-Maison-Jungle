@@ -1,8 +1,12 @@
 import CareScale from './CareScale'
 
+function handleClick(e) {
+    console.log("ceci est mon event : ", e)
+}
+
 export default function PlantItem({ name, cover, id, light, water }) {
     return (
-        <li key={id} className='lmj-plant-item'>
+        <li key={id} className='lmj-plant-item' onClick={handleClick}>
             <img src={cover} alt={`${name} cover`} className='lmj-plant-item-cover' />
             <h3>{name}</h3>
             <div>
