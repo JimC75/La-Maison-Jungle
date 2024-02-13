@@ -1,23 +1,34 @@
-import { useState } from 'React'
+import { useState } from "react"
 
-export default function Cart() {
-    const monsteraPrice = 8;
-    const [cart, updateCart] = useState(0);
-    const [isOpen, setIsOpen] = useState(false);
+function Cart() {
+    const monsteraPrice = 8
+    const [cart, updateCart] = useState(0)
+    const [isOpen, setIsOpen] = useState(false)
 
     return isOpen ? (
-        <div className="lmj-cart">
+        <div className='lmj-cart'>
+            <button
+                className='lmj-cart-toggle-button'
+                onClick={() => setIsOpen(false)}
+            >
+                Fermer
+            </button>
             <h2>Panier</h2>
-            <div>
-                <h4>Monstera : {monsteraPrice}€</h4>
-                <button onClick={() => { updateCart(cart + 1) }}>
-                    Ajouter
-                </button>
-            </div>
-            <h3>Total = {cart * monsteraPrice}€</h3>
+            <div>Monstera : {monsteraPrice}€</div>
+            <button onClick={() => updateCart(cart + 1)}>Ajouter</button>
+            <h3>Total : {monsteraPrice * cart}€</h3>
+            <button onClick={() => updateCart(0)}>Vider le panier</button>
+        </div>
+    ) : (
+        <div className='lmj-cart-closed'>
+            <button
+                className='lmj-cart-toggle-button'
+                onClick={() => setIsOpen(true)}
+            >
+                Ouvrir le Panier
+            </button>
         </div>
     )
-        : (
-            <button onClick={() => { setIsOpen(true) }}>Ouvrir le Panier</button>
-        )
 }
+
+export default Cart

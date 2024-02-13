@@ -1,17 +1,20 @@
 import CareScale from './CareScale'
 
-function handleClick(e) {
-    console.log("ceci est mon event : ", e)
+function handleClick(plantName) {
+    alert(`Vous voulez acheter 1 ${plantName}? Très bon choix 🌱✨`)
 }
 
-export default function PlantItem({ name, cover, id, light, water }) {
+function PlantItem({ cover, name, water, light }) {
     return (
-        <li key={id} className='lmj-plant-item' onClick={handleClick}>
-            <img src={cover} alt={`${name} cover`} className='lmj-plant-item-cover' />
-            <h3>{name}</h3>
+        <li className='lmj-plant-item' onClick={() => handleClick(name)}>
+            <img className='lmj-plant-item-cover' src={cover} alt={`${name} cover`} />
+            {name}
             <div>
-                <CareScale scaleValue={light} careType="light" />
-                <CareScale scaleValue={water} careType="water" />
+                <CareScale careType='water' scaleValue={water} />
+                <CareScale careType='light' scaleValue={light} />
             </div>
-        </li>)
+        </li>
+    )
 }
+
+export default PlantItem
