@@ -6,8 +6,8 @@ import Footer from './Footer'
 import { useState, useEffect } from 'react'
 
 function App() {
-  const newCart = JSON.parse(localStorage.getItem('cart'))
-  const [cart, updateCart] = useState(newCart);
+  const storedCart = JSON.parse(localStorage.getItem('cart'))
+  const [cart, updateCart] = useState(storedCart || []);
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
     console.log(cart)
